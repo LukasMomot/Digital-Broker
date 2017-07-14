@@ -8,3 +8,4 @@ Enable Angular-CLI
     npm install angular-cli@latest --save-dev
 - use file 
     ".angular-cli.json"
+- rename app.module.client to app.module

@@ -1,0 +1,1 @@
+here place directives that should be reused accross components

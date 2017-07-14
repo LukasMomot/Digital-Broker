@@ -1,0 +1,1 @@
+Here should be placed code with common/core functionality
