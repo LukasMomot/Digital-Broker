@@ -1,0 +1,4 @@
+Debuging C# Code
+    - Use    "name": ".NET Core Launch (web)",
+    - Add line
+        "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/DigitalDepot.dll",
