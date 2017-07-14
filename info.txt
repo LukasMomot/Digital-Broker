@@ -9,3 +9,6 @@ Enable Angular-CLI
 - use file 
     ".angular-cli.json"
 - rename app.module.client to app.module
+
+Install TS-Lint
+- npm install -g tslint
