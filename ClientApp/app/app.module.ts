@@ -6,12 +6,12 @@ import { sharedConfig } from './app.module.shared';
 
 @NgModule({
     bootstrap: sharedConfig.bootstrap,
-    declarations: sharedConfig.declarations,
+    declarations: [...sharedConfig.declarations],
     imports: [
         BrowserModule,
-        FormsModule,
         HttpModule,
-        ...sharedConfig.imports
+        // FormsModule,
+        ...sharedConfig.imports,
     ],
     providers: [
         { provide: 'ORIGIN_URL', useValue: location.origin }

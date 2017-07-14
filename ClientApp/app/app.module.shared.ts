@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -28,6 +29,7 @@ export const sharedConfig: NgModule = {
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'search-page', component: SearchPageComponent },
             { path: '**', redirectTo: 'home' }
-        ])
+        ]),
+        FormsModule
     ]
 };

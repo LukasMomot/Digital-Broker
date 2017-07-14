@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'search-bar',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SearchBarComponent implements OnInit {
 
   public term: string = "";
+  @Output('term-changed') termChanged: EventEmitter<string> = new EventEmitter();
 
   constructor() { }
 
@@ -17,5 +18,6 @@ export class SearchBarComponent implements OnInit {
   public search() {
     console.log(this.term);
     this.term = "";
+    this.termChanged.emit(this.term);
   }
 }
