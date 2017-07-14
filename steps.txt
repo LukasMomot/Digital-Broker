@@ -1,0 +1,10 @@
+User Story 1:
+
+1. Create search-page: component
+2. Create search-bar: component
+3. Change Routing
+4. Implement search-bar 
+    4.1 @output
+
+
+User Story 2:
