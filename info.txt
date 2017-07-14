@@ -1,4 +1,10 @@
 Debuging C# Code
     - Use    "name": ".NET Core Launch (web)",
     - Add line
-        "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/DigitalDepot.dll",
+        "program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/DigitalDepot.dll"
+
+Enable Angular-CLI
+- install angular-cli
+    npm install angular-cli@latest --save-dev
+- use file 
+    ".angular-cli.json"
