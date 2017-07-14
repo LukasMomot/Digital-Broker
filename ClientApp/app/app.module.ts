@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { sharedConfig } from './app.module.shared';
 
 @NgModule({
     bootstrap: sharedConfig.bootstrap,
-    declarations: [...sharedConfig.declarations],
+    declarations: sharedConfig.declarations,
     imports: [
         BrowserModule,
         HttpModule,
-        // FormsModule,
         ...sharedConfig.imports,
     ],
     providers: [

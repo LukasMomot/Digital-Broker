@@ -8,3 +8,4 @@ User Story 1:
 
 
 User Story 2:
+1. Create stockList component with one @input

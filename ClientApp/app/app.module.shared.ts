@@ -1,14 +1,15 @@
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { StockListComponent } from './components/stock-list/stock-list.component';
 
-import { AppComponent } from './components/app/app.component'
-import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
+import { AppComponent } from './components/app/app.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { SearchPageComponent } from './components/search-page/search-page.component';
+import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
+import { HomeComponent } from './components/home/home.component';
+import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 
 export const sharedConfig: NgModule = {
     bootstrap: [ AppComponent ],
@@ -19,7 +20,8 @@ export const sharedConfig: NgModule = {
         FetchDataComponent,
         HomeComponent,
         SearchPageComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        StockListComponent
     ],
     imports: [
         RouterModule.forRoot([
