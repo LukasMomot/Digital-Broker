@@ -19,10 +19,19 @@ export class StocksService {
   }
 
   public getStock(symbol: string) {
-    let symbolWithMarket = symbol + '.DE';
+    if (!symbol) {
+      return;
+    }
+
+    let symbolWithMarket;
+    if (!symbol.endsWith('.DE')) {
+      symbolWithMarket = symbol + '.DE';
+    }
+
+    symbolWithMarket = symbol;
     return this.http.get(this.url + '/stockprice/' + symbolWithMarket)
-          .map((res) => res.json())
-          .catch(this.handleError);
+      .map((res) => res.json())
+      .catch(this.handleError);
   }
 
   private handleError(error: Response) {

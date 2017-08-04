@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BuyAndSellFormComponent } from './components/buy-and-sell-form/buy-and-sell-form.component';
 import { StockListComponent } from './components/stock-list/stock-list.component';
 import { StocksService } from './services/stocks.service';
 
@@ -22,16 +23,18 @@ export const sharedConfig: NgModule = {
         HomeComponent,
         SearchPageComponent,
         SearchBarComponent,
-        StockListComponent
+        StockListComponent,
+        BuyAndSellFormComponent
     ],
     imports: [
         RouterModule.forRoot([
-            { path: '', redirectTo: 'search-page', pathMatch: 'full' },
+            { path: '', redirectTo: 'searchPage', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'search-page', component: SearchPageComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: 'buy/:symbol', component: BuyAndSellFormComponent },
+            { path: '**', redirectTo: 'search-page' }
         ]),
         FormsModule
     ],
