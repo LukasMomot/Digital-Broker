@@ -19,27 +19,15 @@ export class SearchPageComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
-
-    // this.stocks = [
-    //   {
-    //     name: 'BMW',
-    //     symbol: 'BMW',
-    //     price: 80,
-    //   },
-    //   {
-    //     name: 'Vonovia',
-    //     symbol: 'VNA',
-    //     price: 34,
-    //   },
-    //   {
-    //     name: 'Bayer',
-    //     symbol: 'BAY',
-    //     price: 105,
-    //   }
-    // ];
   }
 
-  public onTermChanged(term: any) {
+  public onTermChanged(term: string) {
     console.log('Evenet recieved' + term);
+    this.stockService.getStock(term).subscribe((data) => {
+      console.log(data);
+      this.stocks = [...this.stocks, ...data];
+    }, (error) => {
+      console.log(error);
+    });
   }
 }

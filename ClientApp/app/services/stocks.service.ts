@@ -18,6 +18,13 @@ export class StocksService {
       .catch(this.handleError);
   }
 
+  public getStock(symbol: string) {
+    let symbolWithMarket = symbol + '.DE';
+    return this.http.get(this.url + '/stockprice/' + symbolWithMarket)
+          .map((res) => res.json())
+          .catch(this.handleError);
+  }
+
   private handleError(error: Response) {
     // if (error.status === 400)
     //   return Observable.throw(new BadInput(error.json()));
