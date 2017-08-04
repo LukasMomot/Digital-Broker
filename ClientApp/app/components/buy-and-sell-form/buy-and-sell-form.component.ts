@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Stock } from './../../models/stock';
 import { StocksService } from './../../services/stocks.service';
 
@@ -25,7 +25,7 @@ export class BuyAndSellFormComponent implements OnInit {
               amount: 10
             };
 
-  constructor(private route: ActivatedRoute, private stocksService: StocksService) {
+  constructor(private route: ActivatedRoute, private router: Router, private stocksService: StocksService) {
     this.route.params.subscribe((params) => {
       this.model.symbol = params['symbol'];
     });
@@ -38,11 +38,15 @@ export class BuyAndSellFormComponent implements OnInit {
       console.log(stock);
       this.model.currentPrice = stock.price;
       this.model.name = stock.name;
-      this.model.limitOrder = stock.price * 1.02;
+      this.model.limitOrder = +(stock.price * 1.02).toFixed(2);
     });
   }
 
   public submit() {
+  }
+
+  public cancel() {
+    this.router.navigate(['/search-form']);
   }
 
 }
