@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { StockListComponent } from './components/stock-list/stock-list.component';
+import { StocksService } from './services/stocks.service';
 
 import { AppComponent } from './components/app/app.component';
 import { CounterComponent } from './components/counter/counter.component';
@@ -33,5 +34,8 @@ export const sharedConfig: NgModule = {
             { path: '**', redirectTo: 'home' }
         ]),
         FormsModule
+    ],
+    providers: [
+        StocksService
     ]
 };

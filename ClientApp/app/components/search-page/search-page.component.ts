@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from './../../models/stock';
+import { StocksService } from './../../services/stocks.service';
 
 @Component({
   selector: 'search-page',
@@ -10,26 +11,32 @@ export class SearchPageComponent implements OnInit {
 
   public stocks: Stock[];
 
-  constructor() { }
+  constructor(private stockService: StocksService) { }
 
   public ngOnInit() {
-      this.stocks = [
-        {
-          name: 'BMW',
-          symbol: 'BMW',
-          price: 80,
-        },
-        {
-          name: 'Vonovia',
-          symbol: 'VNA',
-          price: 34,
-        },
-        {
-          name: 'Bayer',
-          symbol: 'BAY',
-          price: 105,
-        }
-      ];
+    this.stockService.getMostTraded().subscribe((data) => {
+      this.stocks = data;
+    }, (error) => {
+      console.log(error);
+    });
+
+    // this.stocks = [
+    //   {
+    //     name: 'BMW',
+    //     symbol: 'BMW',
+    //     price: 80,
+    //   },
+    //   {
+    //     name: 'Vonovia',
+    //     symbol: 'VNA',
+    //     price: 34,
+    //   },
+    //   {
+    //     name: 'Bayer',
+    //     symbol: 'BAY',
+    //     price: 105,
+    //   }
+    // ];
   }
 
   public onTermChanged(term: any) {
