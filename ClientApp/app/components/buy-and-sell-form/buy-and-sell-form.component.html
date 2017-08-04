@@ -2,17 +2,8 @@
   Buy stocks
 </h2>
 
-<!--<div class="row">
-  <form (ngSubmit)="submit()" class="form-horizontal" novalidate>
-    <div class="form-group">
-      <label class="control-label" for="name">Name</label>
-      <input type="text" class="form-control" class="col-md-4" name="contactPhone" [value]="model.name" disabled />
-    </div>
-  </form>
-</div>-->
-
 <div class="col-md-10">
-  <form class="form-horizontal" (ngSubmit)="submit()" novalidate>
+  <form #f="ngForm" class="form-horizontal" (ngSubmit)="submit(f)" novalidate>
     <div class="form-group">
       <label for="name" class="col-sm-2 control-label">Name</label>
       <div class="col-sm-10">
@@ -34,12 +25,12 @@
     <div class="form-group">
       <label for="amount" class="col-sm-2 control-label">Amount</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="amount" pattern= "[0-9]" [(ngModel)]="model.amount">
+        <input type="number" min="1" step="1" class="form-control" name="amount" required [(ngModel)]="model.amount">
       </div>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-success">Buy</button>
+        <button type="submit" class="btn btn-success" [disabled]="f.invalid" >Buy</button>
         <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
       </div>
     </div>

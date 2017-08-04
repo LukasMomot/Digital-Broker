@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Stock } from './../../models/stock';
 import { StocksService } from './../../services/stocks.service';
@@ -35,18 +36,19 @@ export class BuyAndSellFormComponent implements OnInit {
     this.stocksService.getStock(this.model.symbol).subscribe((stocks) => {
       const stock = stocks[0] as Stock;
 
-      console.log(stock);
       this.model.currentPrice = stock.price;
       this.model.name = stock.name;
       this.model.limitOrder = +(stock.price * 1.02).toFixed(2);
     });
   }
 
-  public submit() {
+  public submit(f: NgForm) {
+    console.log(f);
+    console.log(this.model);
+    this.router.navigate(['/search-form']);
   }
 
   public cancel() {
     this.router.navigate(['/search-form']);
   }
-
 }
