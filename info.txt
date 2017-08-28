@@ -1,5 +1,11 @@
 Set environment:
-
+npm install
+dotnet restore
+dotnet build
+set ASPNETCORE_ENVIRONMENT=Development
+webpack --config webpack.config.vendor.js
+webpack
+dotnet run
 
 Debuging C# Code
     - Use    "name": ".NET Core Launch (web)",
