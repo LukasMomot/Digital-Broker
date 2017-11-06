@@ -33,9 +33,7 @@ export class BuyAndSellFormComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.stocksService.getStock(this.model.symbol).subscribe((stocks) => {
-      const stock = stocks[0] as Stock;
-
+    this.stocksService.getStock(this.model.symbol).subscribe((stock) => {
       this.model.currentPrice = stock.price;
       this.model.name = stock.name;
       this.model.limitOrder = +(stock.price * 1.02).toFixed(2);

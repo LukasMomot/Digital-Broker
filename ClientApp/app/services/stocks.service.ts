@@ -23,14 +23,7 @@ export class StocksService {
       return;
     }
 
-    let symbolWithMarket;
-    if (!symbol.endsWith('.DE')) {
-      symbolWithMarket = symbol + '.DE';
-    } else {
-      symbolWithMarket = symbol;
-    }
-
-    return this.http.get(this.url + '/stockprice/' + symbolWithMarket)
+    return this.http.get(this.url + '/stockprice/' + symbol)
       .map((res) => res.json())
       .catch(this.handleError);
   }
